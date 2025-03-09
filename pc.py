@@ -1,7 +1,7 @@
 from pynput import keyboard
 from press_recording import AudioRecorder
 from audio2word import transcribe_audio
-from conversation import conversation
+from conversation_psy import conversation
 from set_env import set_env
 from convert_online_gtts import play_chinese, play_english
 import time
