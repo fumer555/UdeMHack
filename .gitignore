@@ -1,6 +1,6 @@
 *.wav
 *.mp3
 !requirements.txt
-.env/
+.env
 __pycache__/
 *.png
