@@ -6,7 +6,7 @@ from set_env import set_env
 from convert_online_gtts import play_chinese, play_english
 import time
 
-recorder = AudioRecorder(device="hw:3,0")
+recorder = AudioRecorder(device="plughw:Device,0")
 recording = False  # 标志位，用于跟踪录音状态
 
 def on_press(key):

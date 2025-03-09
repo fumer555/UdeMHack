@@ -3,7 +3,7 @@ import signal
 import os
 
 class AudioRecorder:
-    def __init__(self, device="hw:3,0"):
+    def __init__(self, device="plughw:Device,0"):
         self.device = device
         self.process = None
         self.output_file = None
