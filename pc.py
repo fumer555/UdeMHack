@@ -33,7 +33,8 @@ def on_release(key):
         print(f"Patient's behavior: {behavior}")
         # play_chinese(answer)
         diagnosis, definition = find_most_relevant_symptom(behavior)
-        play_english(f"The patient has {iagnosis}, which is described as following: {definition}")
+        print(f"The patient has {diagnosis}, which is described as following: {definition}")
+        play_english(f"The patient has the following behavior: {behavior}, based on the model, the patient most likely has {diagnosis}, which is described as following: {definition}")
 
 if __name__ == "__main__":
     print("Press and hold on the pedal to record. Release to stop and process.")
