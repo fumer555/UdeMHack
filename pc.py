@@ -4,6 +4,7 @@ from audio2word import transcribe_audio
 from conversation_psy import conversation
 from set_env import set_env
 from convert_online_gtts import play_chinese, play_english
+from find_symptom import find_most_relevant_symptom
 import time
 
 recorder = AudioRecorder(device="plughw:Device,0")
@@ -28,13 +29,14 @@ def on_release(key):
         set_env()
         prompt = transcribe_audio(recorder.output_file)
         print(f"User: {prompt}")
-        answer = conversation(prompt)
-        print(f"gpt-4o: {answer}")
+        behavior = conversation(prompt)
+        print(f"Patient's behavior: {behavior}")
         # play_chinese(answer)
-        play_english(answer)
+        diagnosis, definition = find_most_relevant_symptom(behavior)
+        play_english(f"The patient has {iagnosis}, which is described as following: {definition}")
 
 if __name__ == "__main__":
-    print("Press and hold SPACE to record. Release to stop and process.")
+    print("Press and hold on the pedal to record. Release to stop and process.")
     try:
         with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
             listener.join()
