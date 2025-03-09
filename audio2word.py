@@ -13,11 +13,11 @@ def transcribe_audio(file_path="active_audio.wav"):
     client = OpenAI(
         api_key=os.environ.get("OPENAI_API_KEY"),  # This is the default and can be omitted
     )
-    # 检查文件格式（Whisper 支持多种格式，包括 wav, mp3 等）
-    audio = AudioSegment.from_file(file_path)
-
-    # 将音频保存为 wav 格式（Whisper 需要 16kHz 单声道 WAV）
+    audio = AudioSegment.from_wav(file_path)
+    print(f"Original sample rate: {audio.frame_rate}, Channels: {audio.channels}")
     audio = audio.set_frame_rate(16000).set_channels(1)
+    print(f"Converted sample rate: {audio.frame_rate}, Channels: {audio.channels}")
+    # Rest of your code...
     temp_path = "temp_audio.wav"
     audio.export(temp_path, format="wav")
 

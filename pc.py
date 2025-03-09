@@ -1,5 +1,5 @@
 from pynput import keyboard
-from press_recording import AudioRecorder
+from win_press_recording_ import AudioRecorder
 from audio2word import transcribe_audio
 from conversation_psy import conversation
 from set_env import set_env
@@ -7,7 +7,7 @@ from convert_online_gtts import play_chinese, play_english
 from find_symptom import find_most_relevant_symptom
 import time
 
-recorder = AudioRecorder(device="plughw:Device,0")
+recorder = AudioRecorder(device="Microphone (Realtek Audio)")
 recording = False  # 标志位，用于跟踪录音状态
 
 def on_press(key):
@@ -24,7 +24,7 @@ def on_release(key):
     if key.char == 'b' and recording:
         recording = False
         recorder.stop_recording()  # 停止录音
-        time.sleep(1)  # 等待录音文件写入完成
+        time.sleep(3)  # 等待录音文件写入完成
         # 调用后续处理逻辑
         set_env()
         prompt = transcribe_audio(recorder.output_file)
