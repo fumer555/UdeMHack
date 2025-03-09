@@ -10,7 +10,7 @@ def text_to_speech_and_play(text, lang='zh', output_file='output.wav'):
     try:
         # Step 1: Generate speech with gTTS
         tts = gTTS(text=text, lang=lang, slow=False)
-        temp_file = "temp_low_mp3.mp3"
+        temp_file = "temp_low_mp3.wav"
         tts.save(temp_file)
         print(f"gTTS audio saved to {temp_file}.")
 

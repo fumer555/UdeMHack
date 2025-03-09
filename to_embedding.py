@@ -1,6 +1,6 @@
 import json
 from openai import OpenAI
-from scipy.spatial.distance import cosine
+# from scipy.spatial.distance import cosine
 import os
 from set_env import set_env
 
